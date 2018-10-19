@@ -1,4 +1,10 @@
-.PHONY: resources
+.PHONNY: install   \
+		 resources \
+		 start     \
+		 release   \
+		 greet     \
+		 resources
+
 include makefiles/task.mk
 include makefiles/deploy-ghpages.mk
 
@@ -8,16 +14,42 @@ DOCKER_IMAGE = ${NAME_IMAGE}:${DOCKER_TAG}
 NAME = 'Claudia Valdivieso'
 
 install:
-	docker run -it --rm --volume ${PWD}:/app ${DOCKER_IMAGE} npm install
+	docker run \
+		--tty=false \
+		-it \
+		--rm \
+		--volume ${PWD}:/app \
+		${DOCKER_IMAGE} npm install
 
 start:
-	docker run -it --rm -p 3030:1042 --volume ${PWD}:/app ${DOCKER_IMAGE} npm start
+	docker run \
+		--tty=false \
+		-it \
+		--rm \
+		-p 3030:1042 \
+		--volume ${PWD}:/app \
+		${DOCKER_IMAGE} \
+		npm start
 
 release:
-	docker run -it --rm -p 3030:1042 --volume ${PWD}:/app ${DOCKER_IMAGE} npm run release
+	docker run \
+		--tty=false \
+		-it \
+		--rm \
+		-p 3030:1042 \
+		--volume ${PWD}:/app \
+		${DOCKER_IMAGE} \
+		npm run release
 
 greet:
-	docker run -it --entrypoint=/app/resources/example.sh --rm  --volume ${PWD}:/app -e NAME=${NAME} ${DOCKER_IMAGE}
+	docker run \
+		--tty=false \
+		-it \
+		--entrypoint=/app/resources/example.sh \
+		--rm  \
+		--volume ${PWD}:/app \
+		-e NAME=${NAME} \
+		${DOCKER_IMAGE}
 
 resources:
 	@echo 'Hola recursos!'
