@@ -15,9 +15,9 @@ NAME = 'Claudia Valdivieso'
 
 install:
 	docker run \
-		--tty=false \
 		-it \
 		--rm \
+		--tty=false \
 		--volume ${PWD}:/app \
 		${DOCKER_IMAGE} npm install
 
