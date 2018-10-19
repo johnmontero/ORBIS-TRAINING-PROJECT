@@ -1,7 +1,8 @@
-.PHONNY: build \
+.PHONY: build \
 		 push  \
 		 up    \
 		 login 
+
 build:
 	docker build -t dtizonportilla/orbis-training-docker:2.0.0 .
 
