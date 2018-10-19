@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Build') {
             steps { 
-                echo 'Build'
+                sh 'make build'
             }
         }
         stage('Test') {
@@ -21,9 +21,15 @@ pipeline {
                 echo 'Test'
             }
         }
+        stage('Release') {
+            steps { 
+                shw
+                sh 'make release'
+            }
+        }
         stage('Deploy') {
             steps { 
-                echo 'Deploy'
+                sh 'make deploy.ghpages'
             }
         }
     }

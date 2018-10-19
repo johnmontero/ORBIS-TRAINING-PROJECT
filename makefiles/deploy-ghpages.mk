@@ -82,5 +82,5 @@ deploy.ghpages:
 	$(call git_add)
 	$(call create_commit)
 	$(call git_push)
-	# $(call clean_workspace)
+	$(call clean_workspace)
 	$(call show_deploy_url)
