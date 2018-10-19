@@ -33,7 +33,6 @@ start:
 
 release:
 	docker run \
-		--tty=false \
 		-it \
 		--rm \
 		-p 3030:1042 \
