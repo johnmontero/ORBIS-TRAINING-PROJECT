@@ -23,9 +23,9 @@ install:
 
 start:
 	docker run \
-		--tty=false \
 		-it \
 		--rm \
+		--tty=false \
 		-p 3030:1042 \
 		--volume ${PWD}:/app \
 		${DOCKER_IMAGE} \
@@ -35,6 +35,7 @@ release:
 	docker run \
 		-it \
 		--rm \
+		--tty=false \
 		-p 3030:1042 \
 		--volume ${PWD}:/app \
 		${DOCKER_IMAGE} \
@@ -42,8 +43,8 @@ release:
 
 greet:
 	docker run \
-		--tty=false \
 		-it \
+		--tty=false \
 		--entrypoint=/app/resources/example.sh \
 		--rm  \
 		--volume ${PWD}:/app \

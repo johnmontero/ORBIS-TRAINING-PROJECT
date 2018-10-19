@@ -16,6 +16,11 @@ pipeline {
                 sh 'make build'
             }
         }
+        stage('Install node_modules') {
+            steps { 
+                sh 'make install'
+            }
+        }
         stage('Test') {
             steps { 
                 echo 'Test'
