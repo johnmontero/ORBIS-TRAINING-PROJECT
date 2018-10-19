@@ -23,7 +23,6 @@ pipeline {
         }
         stage('Release') {
             steps { 
-                shw
                 sh 'make release'
             }
         }
